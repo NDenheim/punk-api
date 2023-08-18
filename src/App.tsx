@@ -1,10 +1,19 @@
 import "./App.scss";
+import { HashRouter, Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav/Nav";
+import Home from "./containers/Home/Home";
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <HashRouter>
+      <div className="app">
+        <Nav />
+
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </div>
+    </HashRouter>
   );
 };
 
