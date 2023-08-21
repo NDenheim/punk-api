@@ -1,41 +1,46 @@
 import "./Home.scss";
 import BeerTile from "../../components/BeerTile/BeerTile";
 import { Beer } from "../../data/types";
-import beers from "../../data/beers";
 
-// export const handleRender = (beers: Beer[]) => {
-//   const allBeers = beers.map((beer) => {
-//     return (
-//       <div>
-//         <BeerTile
-//           name={beer.name}
-//           image={beer.image_url}
-//           description={beer.description}
-//         />
-//       </div>
-//     );
-//   });
-//   return allBeers;
-// };
+type HomeProps = {
+  beers: Beer[];
+};
 
-const Home = () => {
+const Home = ({ beers }: HomeProps) => {
   return (
-    <div>
-      <section>
-        {beers.map((beer) => {
-          return (
-            <div>
-              <BeerTile
-                name={beer.name}
-                image={beer.image_url}
-                description={beer.description}
-              />
-            </div>
-          );
-        })}
+    <div className="container">
+      <section className="all-tiles">
+        {beers.map((beer) => (
+          <BeerTile
+            key={beer.id}
+            name={beer.name}
+            image={beer.image_url}
+            description={beer.description}
+          />
+        ))}
       </section>
     </div>
   );
 };
 
 export default Home;
+
+// const Home = ({}) => {
+//   return (
+//     <div className="container">
+//       <section className="all-tiles">
+//         {beers.map((beer) => {
+//           return (
+//             <div>
+//               <BeerTile
+//                 name={beer.name}
+//                 image={beer.image_url}
+//                 description={beer.description}
+//               />
+//             </div>
+//           );
+//         })}
+//       </section>
+//     </div>
+//   );
+// };
