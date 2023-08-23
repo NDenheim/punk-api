@@ -24,23 +24,3 @@ const Home = ({ beers }: HomeProps) => {
 };
 
 export default Home;
-
-// const Home = ({}) => {
-//   return (
-//     <div className="container">
-//       <section className="all-tiles">
-//         {beers.map((beer) => {
-//           return (
-//             <div>
-//               <BeerTile
-//                 name={beer.name}
-//                 image={beer.image_url}
-//                 description={beer.description}
-//               />
-//             </div>
-//           );
-//         })}
-//       </section>
-//     </div>
-//   );
-// };

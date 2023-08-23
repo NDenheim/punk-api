@@ -1,7 +1,9 @@
 .beer-tile {
-  width: 20rem;
+  width: 25vw;
   margin: 10px 0;
+  padding: 1vw;
   border: 2px solid black;
+  border-radius: 10px;
 
   &__center {
     text-align: center;
