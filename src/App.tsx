@@ -10,14 +10,36 @@ import { Beer } from "./data/types";
 const App = () => {
   const [apiBeers, setApiBeers] = useState<Beer[]>([]);
   const [search, setSearch] = useState<string>("");
-  const [isChecked, setIsChecked] = useState<boolean>(false);
+  const [abv, setABV] = useState<boolean>(false);
+  const [range, setRange] = useState<boolean>(false);
+  const [acidic, setAcidic] = useState<boolean>(false);
 
   const getBeers = async () => {
-    const url = `https://api.punkapi.com/v2/beers/`;
-    // let urlWithParams = url + `?abv_gt=6`;
-    // let urlWithParams: string;
+    const url = `https://api.punkapi.com/v2/beers/?page=1&per_page=80&`;
 
-    const res = await fetch(url);
+    let urlWithParams = url;
+
+    if (search !== "") {
+      urlWithParams += `beer_name=${search}&`;
+    }
+
+    if (abv) {
+      urlWithParams += `abv_gt=6&`;
+    }
+
+    if (range) {
+      urlWithParams += `brewed_before=01-2010&`;
+    }
+
+    // if (acidic) {
+    //   let phBeers = apiBeers.filter((beer) => {
+    //     return beer.ph < 4 && beer.ph !== null;
+    //   });
+    //   return phBeers;
+    // }
+    // console.log(urlWithParams);
+
+    const res = await fetch(urlWithParams);
     const data = await res.json();
     setApiBeers(data);
   };
@@ -26,43 +48,39 @@ const App = () => {
 
   useEffect(() => {
     getBeers();
-  }, [search, isChecked]);
+  }, [search, abv, range, acidic]);
 
   const handleSearch = (event: FormEvent<HTMLInputElement>) => {
     const userInput = event.currentTarget.value.toLowerCase();
-    setSearch(userInput);
+    const joinedInput = userInput.split(" ").join("_");
+    setSearch(joinedInput);
+    // console.log(joinedInput);
   };
 
-  let beerFilteredByName = apiBeers.filter((beer) => {
-    return beer.name.toLowerCase().includes(search);
-  });
-
-  let filteredBeers: Beer[];
-
   const handleFilter = (event: FormEvent<HTMLInputElement>) => {
-    setIsChecked(!isChecked);
-
-    // let filteredBeers = beerFilteredByName.filter((beer) => {
-    //   beer.abv > 6;
-    // });
-
     if (event.currentTarget.value === " High ABV") {
-      //     console.log("It works");
+      setABV(!abv);
+      // console.log("It works");
+    }
 
-      filteredBeers = beerFilteredByName.filter((beer) => {
-        return beer.abv > 6;
-      });
+    if (event.currentTarget.value === " Classic Range") {
+      setRange(!range);
+      // console.log("It works");
     }
 
     if (event.currentTarget.value === " Acidic") {
-      filteredBeers = beerFilteredByName.filter((beer) => {
-        return beer.ph < 4;
-      });
+      setAcidic(!acidic);
+      console.log("It works");
     }
-    // return filteredBeers;
-
-    // beerFilteredByName = filteredBeers;
   };
+
+  let phBeers: Beer[] = apiBeers;
+
+  if (acidic) {
+    phBeers = apiBeers.filter((beer) => {
+      return beer.ph < 4 && beer.ph !== null;
+    });
+  }
 
   return (
     <HashRouter>
@@ -70,28 +88,11 @@ const App = () => {
         <Nav handleSearch={handleSearch} handleFilter={handleFilter} />
 
         <Routes>
-          <Route path="/" element={<Home beers={beerFilteredByName} />} />
+          <Route path="/" element={<Home beers={phBeers} />} />
           <Route path="/:beerName" element={<BeerInfo beers={apiBeers} />} />
         </Routes>
       </div>
     </HashRouter>
   );
 };
-
 export default App;
-
-// export const handleRender = (beers: Beer[]) => {
-//   const allBeers = beers.map((beer) => {
-//     return (
-//       <div>
-//         <BeerTile
-//           key={beer.id}
-//           name={beer.name}
-//           image={beer.image_url}
-//           description={beer.description}
-//         />
-//       </div>
-//     );
-//   });
-//   return allBeers;
-// };

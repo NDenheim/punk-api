@@ -8,14 +8,16 @@ type FilterItemProps = {
 
 const FilterItem = ({ onChange, label }: FilterItemProps) => {
   return (
-    <div>
+    <div className="filter">
       <input
-        className="checkbox"
+        className="filter__checkbox"
         type="checkbox"
         onChange={onChange}
         value={label}
       />
-      <label htmlFor="checkbox">{label}</label>
+      <label className="filter__label" htmlFor="checkbox">
+        {label}
+      </label>
     </div>
   );
 };
