@@ -1,0 +1,52 @@
+.all {
+  width: 80%;
+  height: 100vh;
+  float: right;
+  background-color: aqua;
+
+  .arrow {
+    width: 3vw;
+    margin: 1vw;
+    position: absolute;
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+
+  .image {
+    max-height: 94vh;
+    max-width: 40%;
+  }
+
+  .card {
+    width: 60%;
+    min-height: 70vh;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 10px 10px grey;
+    line-height: 1.5;
+    padding: 10px;
+    font-size: 1.3vw;
+
+    &__heading {
+      text-align: center;
+      font-size: 3vw;
+    }
+
+    &__tagline {
+      text-align: center;
+      font-size: 1.5vw;
+      margin-bottom: 20px;
+    }
+
+    &__facts {
+      margin-top: 20px;
+      margin-left: 10px;
+      list-style-position: inside;
+    }
+  }
+}

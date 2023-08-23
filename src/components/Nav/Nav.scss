@@ -1,0 +1,15 @@
+.nav {
+  border-right: 4px solid black;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  padding: 10px;
+  height: 100vh;
+  background-color: black;
+  color: white;
+
+  &__heading {
+    font-size: 4vw;
+  }
+}
