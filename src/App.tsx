@@ -5,7 +5,6 @@ import Home from "./containers/Home/Home";
 import { useState, FormEvent, useEffect } from "react";
 import BeerInfo from "./components/BeerInfo/BeerInfo";
 import { Beer } from "./data/types";
-import Foam from "../src/assets/beer-foam.png";
 
 const App = () => {
   const [apiBeers, setApiBeers] = useState<Beer[]>([]);
@@ -13,6 +12,7 @@ const App = () => {
   const [abv, setABV] = useState<boolean>(false);
   const [range, setRange] = useState<boolean>(false);
   const [acidic, setAcidic] = useState<boolean>(false);
+  const [bitter, setBitter] = useState<boolean>(false);
   const [page, setPage] = useState<number>(1);
 
   const getBeers = async () => {
@@ -33,6 +33,10 @@ const App = () => {
       urlWithParams += `brewed_before=01-2010&`;
     }
 
+    if (bitter) {
+      urlWithParams += `ibu_gt=45&`;
+    }
+
     const res = await fetch(urlWithParams);
     const data = await res.json();
     setApiBeers(data);
@@ -51,7 +55,7 @@ const App = () => {
 
   useEffect(() => {
     getBeers();
-  }, [search, abv, range, acidic]);
+  }, [search, abv, range, acidic, bitter]);
 
   useEffect(() => {
     getBeers();
@@ -80,6 +84,10 @@ const App = () => {
 
     if (event.currentTarget.value === " Acidic") {
       setAcidic(!acidic);
+    }
+
+    if (event.currentTarget.value === " Bitter") {
+      setBitter(!bitter);
     }
   };
 

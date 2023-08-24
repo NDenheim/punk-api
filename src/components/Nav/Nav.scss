@@ -5,6 +5,7 @@
   position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 20%;
   padding: 10px;
   height: 100vh;
@@ -35,7 +36,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-    margin: 15vh auto 0 auto;
+    // margin: 15vh auto 0 auto;
     width: 100%;
 
     &:hover {

@@ -20,11 +20,13 @@ const Nav = ({ handleSearch, handleFilter }: NavProps) => {
 
   return (
     <nav className="nav">
-      <Link to={`/`} style={{ textDecoration: "none" }}>
-        <h2 className="nav__heading">BEER HUNTER</h2>
-      </Link>
-      <SearchBar handleSearch={handleSearch} />
-      <FiltersList onChange={handleFilter} />
+      <div className="nav__filters">
+        <Link to={`/`} style={{ textDecoration: "none" }}>
+          <h2 className="nav__heading">BEER HUNTER</h2>
+        </Link>
+        <SearchBar handleSearch={handleSearch} />
+        <FiltersList onChange={handleFilter} />
+      </div>
       <Link to={`/${randomNumber}`}>
         <button className="nav__button" onClick={numberGenerator}>
           Random

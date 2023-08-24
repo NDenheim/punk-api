@@ -13,6 +13,7 @@ const FiltersList = ({ onChange }: FiltersListProps) => {
         <FilterItem onChange={onChange} label=" High ABV" />
         <FilterItem onChange={onChange} label=" Classic Range" />
         <FilterItem onChange={onChange} label=" Acidic" />
+        <FilterItem onChange={onChange} label=" Bitter" />
       </ul>
     </div>
   );
