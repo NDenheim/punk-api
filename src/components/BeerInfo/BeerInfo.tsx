@@ -1,7 +1,8 @@
 import "./BeerInfo.scss";
 import { Beer } from "../../data/types";
 import { useParams, Link } from "react-router-dom";
-import Arrow from "../../assets/back-arrow.png";
+import Back from "../../assets/back-arrow.png";
+import Forward from "../../assets/forward-arrow.png";
 
 type BeerInfoProps = {
   beers: Beer[];
@@ -9,18 +10,25 @@ type BeerInfoProps = {
 };
 
 const BeerInfo = ({ beers }: BeerInfoProps) => {
-  let { beerName } = useParams();
+  let { beerId } = useParams();
 
-  const chosenBeer = beers.find((beer) => beer.name === beerName);
+  const chosenBeer = beers.find((beer) => beer.id === Number(beerId));
 
   if (chosenBeer === undefined) {
-    return <p>Sorry, we couldn't find a beer with that name.</p>;
+    return (
+      <p style={{ textAlign: "center", fontSize: "20px" }}>
+        Sorry, we couldn't find a beer with that ID.
+      </p>
+    );
   }
+
+  let currentId = chosenBeer.id;
 
   return (
     <div className="all">
       <Link to={"/"}>
-        <img className="arrow" src={Arrow} alt="Back Arrow" />
+        {/* <img className="back" src={Back} alt="Back Arrow" /> */}
+        <button className="back">Back to home</button>
         {/* <p className="back">Back</p> */}
       </Link>
 
@@ -37,9 +45,14 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
             </li>
             <li className="card__facts--ph">pH: {chosenBeer.ph}</li>
             <li className="card__facts--abv">ABV: {chosenBeer.abv}</li>
+            <li>IBU: {chosenBeer.ibu}</li>
+            <li>EBC: {chosenBeer.ebc}</li>
           </ul>
           <p className="card__food">
             <strong>Food Pairings:</strong> {chosenBeer.food_pairing.join(", ")}
+          </p>
+          <p className="card__tips">
+            <strong>Brewer's Tips:</strong> {chosenBeer.brewers_tips}
           </p>
         </div>
 
@@ -49,8 +62,71 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
           alt={chosenBeer.name}
         />
       </div>
+      <div className="arrows">
+        <Link to={`/${currentId - 1}`}>
+          <img className="arrow" src={Back} alt="Back Arrow" />
+        </Link>
+        <Link to={`/${currentId + 1}`}>
+          <img className="arrow" src={Forward} alt="Forward Arrow" />
+        </Link>
+      </div>
+      <div className="wrapper">
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+        <div>
+          <span className="dot"></span>
+        </div>
+      </div>
     </div>
   );
 };
 
 export default BeerInfo;
+
+// let { beerName } = useParams();
+
+//   const chosenBeer = beers.find((beer) => beer.name === beerName);
+
+//   if (chosenBeer === undefined) {
+//     return <p>Sorry, we couldn't find a beer with that name.</p>;
+//   }

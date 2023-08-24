@@ -1,15 +1,36 @@
+@use "../../variables" as *;
+
 .beer-tile {
+  background-image: url("../../assets/beer-foam1.png");
+  background-repeat: no-repeat;
+  background-size: 30vw;
+  background-position: right 0;
+  background-blend-mode: color;
   width: 25vw;
   height: 28vw;
   margin: 10px 0;
   padding: 1vw;
   border: 2px solid black;
   border-radius: 10px;
-  box-shadow: 10px 10px rgb(93, 93, 93);
-  background-color: rgba(245, 245, 245, 0.613);
+  // box-shadow: 10px 10px rgb(93, 93, 93);
+
+  background-color: rgba(255, 227, 176, 0.639);
   color: black;
   display: flex;
   flex-direction: column;
+
+  // &:hover {
+  //   width: 80vw;
+  //   transition-duration: 1s;
+  //   position: relative;
+  //   z-index: 0;
+  // }
+
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
 
   &__info {
     display: flex;
@@ -19,7 +40,7 @@
   &__center {
     width: 80%;
     line-height: 2;
-    margin-left: 10%;
+    margin-left: 5%;
     list-style-position: inside;
     margin-top: 3vw;
   }
@@ -35,6 +56,7 @@
     text-align: center;
     font-size: 2vw;
     margin-bottom: 1vh;
+    font-family: $font-primary;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -45,6 +67,7 @@
   &__tagline {
     text-align: center;
     font-size: 1.4vw;
+    font-weight: 500;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -58,37 +81,6 @@
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
-    margin-bottom: 2vw;
+    margin-top: 2vw;
   }
 }
-
-// .beer-tile {
-//   width: 25vw;
-//   height: 28vw;
-//   margin: 10px 0;
-//   padding: 1vw;
-//   border: 2px solid black;
-//   border-radius: 10px;
-//   color: black;
-
-//   &__center {
-//     text-align: center;
-//   }
-
-//   &__image {
-//     height: 15rem;
-//   }
-
-//   &__name {
-//     text-decoration: none;
-//     color: black;
-//   }
-
-//   &__description {
-//     display: -webkit-box;
-//     -webkit-line-clamp: 3;
-//     -webkit-box-orient: vertical;
-//     text-overflow: ellipsis;
-//     overflow: hidden;
-//   }
-// }

@@ -11,10 +11,12 @@ type BeerTileProps = {
   brewed: string;
   ph: number;
   abv: number;
+  id: number;
 };
 
 const BeerTile = ({
   name,
+  id,
   image,
   tagline,
   description,
@@ -23,7 +25,7 @@ const BeerTile = ({
   abv,
 }: BeerTileProps) => {
   return (
-    <Link to={`/${name}`} style={{ textDecoration: "none" }}>
+    <Link to={`/${id}`} style={{ textDecoration: "none" }}>
       <div className="beer-tile">
         <div>
           <h2 className="beer-tile__name">{name}</h2>
@@ -34,13 +36,12 @@ const BeerTile = ({
           <img className="beer-tile__image" src={image} alt={name} />
           {/* <Link to={`/${name}`} style={{ textDecoration: "none" }}> */}
           <div className="beer-tile__center">
-            <p className="beer-tile__description">{description}</p>
-
             <ul className="card__facts">
               <li className="card__facts--brew-date">First brewed: {brewed}</li>
               <li className="card__facts--ph">pH: {ph}</li>
               <li className="card__facts--abv">ABV: {abv}</li>
             </ul>
+            <p className="beer-tile__description">{description}</p>
           </div>
         </div>
       </div>

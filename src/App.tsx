@@ -1,5 +1,5 @@
 import "./App.scss";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import Nav from "./components/Nav/Nav";
 import Home from "./containers/Home/Home";
 import { useState, FormEvent, useEffect } from "react";
@@ -36,11 +36,27 @@ const App = () => {
     const res = await fetch(urlWithParams);
     const data = await res.json();
     setApiBeers(data);
+
+    if (data == "") {
+      alert("No beers match you search :(");
+      // return (
+      //   <div>
+      //     <p style={{ textAlign: "center", fontSize: "20px" }}>
+      //       Sorry, no beers match you search!
+      //     </p>
+      //   </div>
+      // );
+    }
   };
 
   useEffect(() => {
     getBeers();
-  }, [search, abv, range, acidic, page]);
+  }, [search, abv, range, acidic]);
+
+  useEffect(() => {
+    getBeers();
+    window.scrollTo(0, 0);
+  }, [page]);
 
   const handlePageChange = (event: FormEvent<HTMLButtonElement>) => {
     const chosenPage = event.currentTarget.value;
@@ -83,9 +99,11 @@ const App = () => {
         <Routes>
           <Route
             path="/"
-            element={<Home beers={phBeers} onClick={handlePageChange} />}
+            element={
+              <Home beers={phBeers} onClick={handlePageChange} page={page} />
+            }
           />
-          <Route path="/:beerName" element={<BeerInfo beers={apiBeers} />} />
+          <Route path="/:beerId" element={<BeerInfo beers={apiBeers} />} />
         </Routes>
       </div>
     </HashRouter>

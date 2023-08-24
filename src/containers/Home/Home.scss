@@ -1,3 +1,5 @@
+@use "../../variables" as *;
+
 .container {
   // background-image: url("../../assets/beer-foam1.png");
   // background-repeat: no-repeat;
@@ -5,53 +7,36 @@
   // background-position: right 0;
   // background-attachment: fixed;
   // background-blend-mode: color;
+  margin-right: 0;
+  margin-left: auto;
+  width: 80%;
 
   .all-tiles {
-    // float: right;
-    margin-right: 0;
-    margin-left: auto;
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
 
-  .arrows {
-    width: 80%;
-    margin-right: 0;
-    margin-left: auto;
-    display: flex;
-    justify-content: space-between;
-
-    img {
-      width: 5vw;
-      margin: 2vw;
-    }
-  }
-
   .pages {
-    width: 80%;
-    margin-right: 0;
-    margin-left: auto;
-    padding: 10vh;
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    font-size: 2vw;
+    text-align: center;
+    font-size: 2.3vw;
+    // font-family: $font-primary;
+    padding: 3vh;
 
-    button {
-      width: 3rem;
-      aspect-ratio: 1/1;
-      font-size: 100%;
-      background-color: black;
-      color: white;
-      border-radius: 50%;
+    &__numbers {
+      padding: 3vh;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+
+      button {
+        width: 3rem;
+        aspect-ratio: 1/1;
+        font-size: 60%;
+        background-color: black;
+        color: white;
+        border-radius: 50%;
+      }
     }
   }
 }
-
-// .foam {
-//   width: 100vw;
-//   z-index: -5;
-//   position: absolute;
-// }
