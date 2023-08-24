@@ -2,13 +2,26 @@
   width: 80%;
   height: 100vh;
   float: right;
-  background-color: aqua;
+  // background-color: rgba(239, 187, 55, 0.747);
+  background-image: url("../../assets/beer-foam1.png");
+  background-repeat: no-repeat;
+  background-size: 80vw;
+  background-position: right 0;
+  background-attachment: fixed;
+  background-blend-mode: color;
 
   .arrow {
     width: 3vw;
     margin: 1vw;
-    position: absolute;
+    // position: absolute;
+    pointer-events: all;
   }
+
+  // p {
+  //   position: absolute;
+  //   margin: 1vw;
+  //   font-size: 2vw;
+  // }
 }
 
 .info {
@@ -18,7 +31,7 @@
   position: relative;
 
   .image {
-    max-height: 94vh;
+    max-height: 85vh;
     max-width: 40%;
   }
 
@@ -47,6 +60,10 @@
       margin-top: 20px;
       margin-left: 10px;
       list-style-position: inside;
+    }
+
+    &__food {
+      margin-top: 30px;
     }
   }
 }
