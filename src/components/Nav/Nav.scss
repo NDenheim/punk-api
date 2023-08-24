@@ -1,8 +1,11 @@
+@use "../../variables" as *;
+
 .nav {
   border-right: 4px solid black;
   position: fixed;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 20%;
   padding: 10px;
   height: 100vh;
@@ -10,6 +13,34 @@
   color: white;
 
   &__heading {
-    font-size: 4vw;
+    font-size: 7vw;
+    font-family: $font-primary;
+    text-decoration: none;
+    color: white;
+  }
+
+  &__button {
+    background-color: rgba(250, 214, 124, 0.924);
+    border: 2px solid #422800;
+    border-radius: 30px;
+    box-shadow: #422800 4px 4px 0 0;
+    color: #422800;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    // margin: 15vh auto 0 auto;
+    width: 100%;
+
+    &:hover {
+      background-color: #ffffff;
+    }
   }
 }
