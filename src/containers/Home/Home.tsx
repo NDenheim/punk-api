@@ -1,12 +1,18 @@
 import "./Home.scss";
 import BeerTile from "../../components/BeerTile/BeerTile";
 import { Beer } from "../../data/types";
+import Back from "../../assets/back-arrow.png";
+import Forward from "../../assets/forward-arrow.png";
+import { Link } from "react-router-dom";
+import { FormEventHandler, MouseEventHandler, useState } from "react";
 
 type HomeProps = {
   beers: Beer[];
+  // page: FormEventHandler<HTMLButtonElement>;
+  onClick: MouseEventHandler<HTMLButtonElement>;
 };
 
-const Home = ({ beers }: HomeProps) => {
+const Home = ({ beers, onClick }: HomeProps) => {
   return (
     <div className="container">
       <section className="all-tiles">
@@ -16,9 +22,38 @@ const Home = ({ beers }: HomeProps) => {
             name={beer.name}
             image={beer.image_url}
             description={beer.description}
+            tagline={beer.tagline}
+            brewed={beer.first_brewed}
+            ph={beer.ph}
+            abv={beer.abv}
           />
         ))}
       </section>
+      {/* <div className="arrows">
+        <img src={Back} alt="Back arrow" />
+        <Link to={`/${page}`}>
+          <img src={Forward} alt="Forward arrow" />
+        </Link>
+      </div> */}
+      <div>
+        <ul className="pages">
+          <button onClick={onClick} value={1}>
+            1
+          </button>
+          <button onClick={onClick} value={2}>
+            2
+          </button>
+          <button onClick={onClick} value={3}>
+            3
+          </button>
+          <button onClick={onClick} value={4}>
+            4
+          </button>
+          <button onClick={onClick} value={5}>
+            5
+          </button>
+        </ul>
+      </div>
     </div>
   );
 };
