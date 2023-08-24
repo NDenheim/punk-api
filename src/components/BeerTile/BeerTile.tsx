@@ -12,6 +12,7 @@ type BeerTileProps = {
   ph: number;
   abv: number;
   id: number;
+  ibu: number;
 };
 
 const BeerTile = ({
@@ -23,6 +24,7 @@ const BeerTile = ({
   brewed,
   ph,
   abv,
+  ibu,
 }: BeerTileProps) => {
   return (
     <Link to={`/${id}`} style={{ textDecoration: "none" }}>
@@ -40,6 +42,7 @@ const BeerTile = ({
               <li className="card__facts--brew-date">First brewed: {brewed}</li>
               <li className="card__facts--ph">pH: {ph}</li>
               <li className="card__facts--abv">ABV: {abv}</li>
+              <li className="card__facts--ibu">IBU: {ibu}</li>
             </ul>
             <p className="beer-tile__description">{description}</p>
           </div>

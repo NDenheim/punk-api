@@ -1,16 +1,12 @@
 import "./Home.scss";
 import BeerTile from "../../components/BeerTile/BeerTile";
 import { Beer } from "../../data/types";
-import Back from "../../assets/back-arrow.png";
-import Forward from "../../assets/forward-arrow.png";
-import { Link } from "react-router-dom";
-import { FormEventHandler, MouseEventHandler, useState } from "react";
+import { MouseEventHandler } from "react";
 
 type HomeProps = {
   beers: Beer[];
   page: number;
   onClick: MouseEventHandler<HTMLButtonElement>;
-  // selected: boolean;
 };
 
 const Home = ({ beers, onClick, page }: HomeProps) => {
@@ -48,6 +44,7 @@ const Home = ({ beers, onClick, page }: HomeProps) => {
             brewed={beer.first_brewed}
             ph={beer.ph}
             abv={beer.abv}
+            ibu={beer.ibu}
           />
         ))}
       </section>
@@ -77,12 +74,3 @@ const Home = ({ beers, onClick, page }: HomeProps) => {
 };
 
 export default Home;
-
-{
-  /* <div className="arrows">
-        <img src={Back} alt="Back arrow" />
-        <Link to={`/${page}`}>
-          <img src={Forward} alt="Forward arrow" />
-        </Link>
-      </div> */
-}
