@@ -13,7 +13,7 @@
 
   .pages {
     text-align: center;
-    font-size: 2.3vw;
+    font-size: 3vw;
     padding: 2.4vh;
 
     &__numbers {
@@ -31,5 +31,11 @@
         border-radius: 50%;
       }
     }
+  }
+}
+
+@media screen and (min-width: 880px) {
+  .pages {
+    font-size: 2.3vw;
   }
 }
