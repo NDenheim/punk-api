@@ -74,7 +74,7 @@ const App = () => {
   };
 
   const handleFilter = (event: FormEvent<HTMLInputElement>) => {
-    if (event.currentTarget.value === " High ABV") {
+    if (event.currentTarget.value === " High Alcohol") {
       setABV(!abv);
     }
 

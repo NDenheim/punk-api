@@ -6,7 +6,6 @@ import Forward from "../../assets/forward-arrow.png";
 
 type BeerInfoProps = {
   beers: Beer[];
-  // onClose: () => void;
 };
 
 const BeerInfo = ({ beers }: BeerInfoProps) => {
@@ -27,14 +26,10 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
   return (
     <div className="all">
       <Link to={"/"}>
-        {/* <img className="back" src={Back} alt="Back Arrow" /> */}
         <button className="back">Back to home</button>
-        {/* <p className="back">Back</p> */}
       </Link>
 
       <div className="info">
-        {/* <img className="image" src={chosenBeer.image_url} alt={chosenBeer.name} /> */}
-
         <div className="card">
           <h3 className="card__heading">{chosenBeer.name}</h3>
           <h5 className="card__tagline">{chosenBeer.tagline}</h5>

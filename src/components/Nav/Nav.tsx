@@ -10,13 +10,14 @@ type NavProps = {
 };
 
 const Nav = ({ handleSearch, handleFilter }: NavProps) => {
-  let randomNumber;
+  let randomNumber = Math.floor(Math.random() * 80) + 1;
 
   const numberGenerator = () => {
     randomNumber = Math.floor(Math.random() * 325) + 1;
     console.log(randomNumber);
-    return randomNumber;
   };
+
+  // numberGenerator();
 
   return (
     <nav className="nav">
@@ -27,11 +28,14 @@ const Nav = ({ handleSearch, handleFilter }: NavProps) => {
         <SearchBar handleSearch={handleSearch} />
         <FiltersList onChange={handleFilter} />
       </div>
-      <Link to={`/${randomNumber}`}>
-        <button className="nav__button" onClick={numberGenerator}>
-          Random
-        </button>
-      </Link>
+      <div className="nav__random">
+        <p> Want to try something new?</p>
+        <Link to={`/${randomNumber}`}>
+          <button className="nav__random--button" onClick={numberGenerator}>
+            Random
+          </button>
+        </Link>
+      </div>
     </nav>
   );
 };

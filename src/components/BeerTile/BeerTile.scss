@@ -6,8 +6,8 @@
   background-size: 30vw;
   background-position: right 0;
   background-blend-mode: color;
-  width: 25vw;
-  height: 28vw;
+  width: 22rem;
+  height: 30rem;
   margin: 10px 0;
   padding: 1vw;
   border: 2px solid black;
@@ -40,9 +40,8 @@
   &__center {
     width: 80%;
     line-height: 2;
-    margin-left: 5%;
     list-style-position: inside;
-    margin-top: 2vh;
+    margin: auto 0 auto 5%;
   }
 
   &__image {
@@ -54,7 +53,7 @@
     text-decoration: none;
     // color: white;
     text-align: center;
-    font-size: 2vw;
+    font-size: 1.8rem;
     margin-bottom: 1vh;
     font-family: $font-primary;
     display: -webkit-box;
@@ -66,7 +65,7 @@
 
   &__tagline {
     text-align: center;
-    font-size: 1.4vw;
+    font-size: 1.2rem;
     font-weight: 500;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -82,5 +81,28 @@
     text-overflow: ellipsis;
     overflow: hidden;
     margin-top: 2vh;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .beer-tile {
+    width: 20rem;
+    height: 28.5rem;
+
+    &__description {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      margin-top: 2vh;
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .beer-tile {
+    width: 23rem;
+    height: 25rem;
   }
 }
