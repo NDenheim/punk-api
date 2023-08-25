@@ -3,6 +3,7 @@ import { Beer } from "../../data/types";
 import { useParams, Link } from "react-router-dom";
 import Back from "../../assets/back-arrow.png";
 import Forward from "../../assets/forward-arrow.png";
+import BeerBottle from "../../assets/beer-bottle2.png";
 
 type BeerInfoProps = {
   beers: Beer[];
@@ -19,6 +20,10 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
         Sorry, we couldn't find a beer with that ID.
       </p>
     );
+  }
+
+  if (chosenBeer.image_url === null) {
+    chosenBeer.image_url = BeerBottle;
   }
 
   let currentId = chosenBeer.id;
@@ -39,7 +44,8 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
               First brewed: {chosenBeer.first_brewed}
             </li>
             <li className="card__facts--ph">pH: {chosenBeer.ph}</li>
-            <li className="card__facts--abv">ABV: {chosenBeer.abv}</li>
+            <li className="card__facts--abv">ABV: {chosenBeer.abv}%</li>
+            <li>Attenuation level: {chosenBeer.attenuation_level}%</li>
             <li>IBU: {chosenBeer.ibu}</li>
             <li>EBC: {chosenBeer.ebc}</li>
           </ul>

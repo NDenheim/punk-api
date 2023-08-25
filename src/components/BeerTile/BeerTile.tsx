@@ -1,5 +1,6 @@
 import "./BeerTile.scss";
 import { Link } from "react-router-dom";
+import BeerBottle from "../../assets/beer-bottle2.png";
 
 type BeerTileProps = {
   image: string;
@@ -24,6 +25,10 @@ const BeerTile = ({
   abv,
   ibu,
 }: BeerTileProps) => {
+  if (image === null) {
+    image = BeerBottle;
+  }
+
   return (
     <Link to={`/${id}`} style={{ textDecoration: "none" }}>
       <div className="beer-tile">
