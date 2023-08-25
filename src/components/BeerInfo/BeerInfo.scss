@@ -2,15 +2,7 @@
 
 .all {
   width: 80%;
-  // height: 100vh;
   float: right;
-  // background-color: rgba(239, 187, 55, 0);
-  // background-image: url("../../assets/beer-foam1.png");
-  // background-repeat: no-repeat;
-  // background-size: 80vw;
-  // background-position: right 0;
-  // background-attachment: fixed;
-  // background-blend-mode: color;
 
   .back {
     background-color: rgb(252, 233, 186);
@@ -35,12 +27,6 @@
       background-color: #fff;
     }
   }
-
-  // p {
-  //   position: absolute;
-  //   margin: 1vw;
-  //   font-size: 2vw;
-  // }
 }
 
 .info {
@@ -106,7 +92,7 @@
   }
 }
 
-.wrapper {
+.bubbles {
   height: 100%;
   width: 80%;
   float: right;
@@ -126,7 +112,6 @@
       width: 10px;
       border-radius: 50px;
       background: rgba(255, 255, 255, 0.5);
-      // position: absolute;
       top: 20%;
       right: 20%;
     }
@@ -138,7 +123,7 @@
     }
     &:nth-child(2) {
       top: 60%;
-      left: 80%;
+      left: 90%;
       animation: animate 10s linear infinite;
     }
     &:nth-child(3) {
@@ -162,8 +147,8 @@
       animation: animate 5s linear infinite;
     }
     &:nth-child(7) {
-      top: 70%;
-      left: 20%;
+      top: 80%;
+      left: 50%;
       animation: animate 8s linear infinite;
     }
     &:nth-child(8) {
@@ -177,7 +162,7 @@
       animation: animate 6s linear infinite;
     }
     &:nth-child(10) {
-      top: 45%;
+      top: 85%;
       left: 20%;
       animation: animate 10s linear infinite;
     }
@@ -211,9 +196,9 @@
 
 @keyframes animate {
   0% {
-    transform: scale(0) translateY(0) rotate(70deg);
+    transform: scale(0) translateY(0);
   }
   100% {
-    transform: scale(1.3) translateY(-100px) rotate(360deg);
+    transform: scale(1.5) translateY(-100px);
   }
 }

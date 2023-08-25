@@ -19,7 +19,6 @@ const App = () => {
     const url = `https://api.punkapi.com/v2/beers/?&page=${page}&per_page=80&`;
 
     let urlWithParams = url;
-    // console.log(urlWithParams);
 
     if (search !== "") {
       urlWithParams += `beer_name=${search}&`;
@@ -43,13 +42,6 @@ const App = () => {
 
     if (data == "") {
       alert("No beers match you search :(");
-      // return (
-      //   <div>
-      //     <p style={{ textAlign: "center", fontSize: "20px" }}>
-      //       Sorry, no beers match you search!
-      //     </p>
-      //   </div>
-      // );
     }
   };
 

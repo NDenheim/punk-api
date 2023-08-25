@@ -65,7 +65,7 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
           <img className="arrow" src={Forward} alt="Forward Arrow" />
         </Link>
       </div>
-      <div className="wrapper">
+      <div className="bubbles">
         <div>
           <span className="dot"></span>
         </div>
@@ -117,11 +117,3 @@ const BeerInfo = ({ beers }: BeerInfoProps) => {
 };
 
 export default BeerInfo;
-
-// let { beerName } = useParams();
-
-//   const chosenBeer = beers.find((beer) => beer.name === beerName);
-
-//   if (chosenBeer === undefined) {
-//     return <p>Sorry, we couldn't find a beer with that name.</p>;
-//   }
