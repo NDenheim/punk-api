@@ -10,14 +10,13 @@ type NavProps = {
 };
 
 const Nav = ({ handleSearch, handleFilter }: NavProps) => {
-  let randomNumber = Math.floor(Math.random() * 80) + 1;
+  let [randomNumber, setRandomNumber] = useState<number>(
+    Math.floor(Math.random() * 80) + 1
+  );
 
   const numberGenerator = () => {
-    randomNumber = Math.floor(Math.random() * 325) + 1;
-    console.log(randomNumber);
+    setRandomNumber(Math.floor(Math.random() * 80) + 1);
   };
-
-  // numberGenerator();
 
   return (
     <nav className="nav">
@@ -41,21 +40,3 @@ const Nav = ({ handleSearch, handleFilter }: NavProps) => {
 };
 
 export default Nav;
-
-// let randomNumber;
-
-//   const numberGenerator = () => {
-//     randomNumber = Math.floor(Math.random() * 325) + 1;
-//     console.log(randomNumber);
-//     return randomNumber;
-//   };
-
-{
-  /* <Link to={`/${randomNumber}`}>
-<button onClick={numberGenerator}>Random</button>
-</Link> */
-}
-
-//   <Link to={`/${Math.floor(Math.random() * 325) + 1}`}>
-//         <button onClick={numberGenerator}>Random</button>
-//       </Link>
